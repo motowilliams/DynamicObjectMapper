@@ -8,7 +8,7 @@ namespace DynamicObjectMapper.Tests
         [Fact]
         public void Multiply()
         {
-            var mapper = new DynamicObjectMapper<TestObject>();
+            var mapper = new DynamicObjectMapper<TestObject>(commandHandlers);
             TestObject testObject = new TestObject { Value1 = 1, Value2 = 2.1M, Value3 = 3.01D };
 
             dynamic object2 = mapper.Map(testObject, new[] { _testConfigDictionary["MultiplyConfig"] });
@@ -19,7 +19,7 @@ namespace DynamicObjectMapper.Tests
         [Fact]
         public void Subtract()
         {
-            var mapper = new DynamicObjectMapper<TestObject>();
+            var mapper = new DynamicObjectMapper<TestObject>(commandHandlers);
             TestObject testObject = new TestObject { Value1 = 1, Value2 = 2.1M, Value3 = 3.01D };
 
             dynamic object2 = mapper.Map(testObject, new[] { _testConfigDictionary["SubtractConfig"] });
@@ -30,7 +30,7 @@ namespace DynamicObjectMapper.Tests
         [Fact]
         public void Sum()
         {
-            var mapper = new DynamicObjectMapper<TestObject>();
+            var mapper = new DynamicObjectMapper<TestObject>(commandHandlers);
             TestObject testObject = new TestObject { Value1 = 1, Value2 = 2.1M, Value3 = 3.01D };
 
             dynamic object2 = mapper.Map(testObject, new[] { _testConfigDictionary["SumConfig"] });

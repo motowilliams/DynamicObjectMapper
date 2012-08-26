@@ -8,7 +8,7 @@ namespace DynamicObjectMapper.Tests
         [Fact]
         public void Guid()
         {
-            var mapper = new DynamicObjectMapper<TestObject>();
+            var mapper = new DynamicObjectMapper<TestObject>(commandHandlers);
             Guid id = new Guid("9d020be8-3f97-4674-aeec-afc2735f64d5");
             TestObject testObject = new TestObject { Id = id };
 
@@ -20,7 +20,7 @@ namespace DynamicObjectMapper.Tests
         [Fact]
         public void Int()
         {
-            var mapper = new DynamicObjectMapper<TestObject>();
+            var mapper = new DynamicObjectMapper<TestObject>(commandHandlers);
             TestObject testObject = new TestObject { Age = 10 };
 
             dynamic object2 = mapper.Map(testObject, new[] { _testConfigDictionary["IntConfig"] });
@@ -31,7 +31,7 @@ namespace DynamicObjectMapper.Tests
         [Fact]
         public void FlattenToCsv()
         {
-            var mapper = new DynamicObjectMapper<TestObject>();
+            var mapper = new DynamicObjectMapper<TestObject>(commandHandlers);
             TestObject testObject = new TestObject { Things = new[] { "Thing1", "Thing2", "Thing3" } };
 
             dynamic object2 = mapper.Map(testObject, new[] { _testConfigDictionary["FlattenToCsvConfig"] });
@@ -42,7 +42,7 @@ namespace DynamicObjectMapper.Tests
         [Fact]
         public void Concat()
         {
-            var mapper = new DynamicObjectMapper<TestObject>();
+            var mapper = new DynamicObjectMapper<TestObject>(commandHandlers);
             TestObject testObject = new TestObject { FirstName = "Foo", LastName = "Bar", MiddleName = "J" };
 
             dynamic object2 = mapper.Map(testObject, new[] { _testConfigDictionary["ConcatConfig"] });
@@ -53,7 +53,7 @@ namespace DynamicObjectMapper.Tests
         [Fact]
         public void String()
         {
-            var mapper = new DynamicObjectMapper<TestObject>();
+            var mapper = new DynamicObjectMapper<TestObject>(commandHandlers);
             TestObject testObject = new TestObject { FirstName = "Foo", LastName = "Bar" };
 
             dynamic object2 = mapper.Map(testObject, new[] { _testConfigDictionary["StringFirstNameConfig"], _testConfigDictionary["StringLastNameConfig"] });

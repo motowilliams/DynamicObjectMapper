@@ -12,23 +12,11 @@ namespace DynamicObjectMapper
         private readonly IDictionary<MapCommand, ICommandHandler> _commandHandlers;
         private readonly PropertyInfo[] _propertyInfoCollection;
 
-        public DynamicObjectMapper()
-        {
-            _commandHandlers = new Dictionary<MapCommand, ICommandHandler>();
-            _commandHandlers.Add(MapCommand.DirectMap, new DirectMapCommandHandler());
-            _commandHandlers.Add(MapCommand.Concat, new ConcatMapCommandHandler());
-            _commandHandlers.Add(MapCommand.FlattenToCsv, new FlattenToCsvMapCommandHandler());
-            _commandHandlers.Add(MapCommand.Multiply, new MultiplyMapCommandHandler());
-            _commandHandlers.Add(MapCommand.Subtract, new SubtractMapCommandHandler());
-            _commandHandlers.Add(MapCommand.Sum, new SumMapCommandHandler());
-
-            _propertyInfoCollection = typeof(T).GetProperties();
-            _sourceList = new Dictionary<string, object>();
-        }
-
         public DynamicObjectMapper(IDictionary<MapCommand, ICommandHandler> commandHandlers)
         {
             _commandHandlers = commandHandlers;
+            _propertyInfoCollection = typeof(T).GetProperties();
+            _sourceList = new Dictionary<string, object>();
         }
 
         public dynamic Map(T source, IEnumerable<MapperConfig> mapperConfigs)

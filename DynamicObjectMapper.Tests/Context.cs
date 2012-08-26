@@ -6,6 +6,7 @@ namespace DynamicObjectMapper.Tests
     public class Context
     {
         protected readonly Dictionary<string, MapperConfig> _testConfigDictionary;
+        protected Dictionary<MapCommand, ICommandHandler> commandHandlers;
 
         public Context()
         {
@@ -34,6 +35,14 @@ namespace DynamicObjectMapper.Tests
             _testConfigDictionary.Add("StringFirstNameConfig", _mapperConfigs[6]);
             _testConfigDictionary.Add("StringLastNameConfig", _mapperConfigs[7]);
             _testConfigDictionary.Add("MultiplyConfig", _mapperConfigs[8]);
+
+            commandHandlers = new Dictionary<MapCommand, ICommandHandler>();
+            commandHandlers.Add(MapCommand.DirectMap, new DirectMapCommandHandler());
+            commandHandlers.Add(MapCommand.Concat, new ConcatMapCommandHandler());
+            commandHandlers.Add(MapCommand.FlattenToCsv, new FlattenToCsvMapCommandHandler());
+            commandHandlers.Add(MapCommand.Multiply, new MultiplyMapCommandHandler());
+            commandHandlers.Add(MapCommand.Subtract, new SubtractMapCommandHandler());
+            commandHandlers.Add(MapCommand.Sum, new SumMapCommandHandler());
         }
     }
 }
