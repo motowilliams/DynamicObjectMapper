@@ -2,6 +2,7 @@ using System;
 
 namespace DynamicObjectMapper
 {
+    [Serializable]
     public class MapperConfig
     {
         public string[] SourceName { get; set; }

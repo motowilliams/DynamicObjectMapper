@@ -2,6 +2,7 @@ using System;
 
 namespace DynamicObjectMapper
 {
+    [Serializable]
     public enum MapCommand
     {
         DirectMap,
