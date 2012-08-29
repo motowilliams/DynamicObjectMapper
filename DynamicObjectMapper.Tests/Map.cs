@@ -1,10 +1,22 @@
 using System;
+using System.ComponentModel;
 using Xunit;
 
 namespace DynamicObjectMapper.Tests
 {
     public class Map : Context
     {
+        [Fact]
+        public void Enum()
+        {
+            var mapper = new DynamicObjectMapper<TestObject>(commandHandlers);
+            TestObject testObject = new TestObject { TestEnum = TestEnum.Black };
+
+            dynamic object2 = mapper.Map(testObject, new[] { _testConfigDictionary["EnumConfig"] });
+
+            Assert.Equal(TestEnum.Black, object2.MyColor);
+        }
+
         [Fact]
         public void Guid()
         {

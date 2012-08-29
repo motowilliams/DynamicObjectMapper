@@ -21,6 +21,7 @@ namespace DynamicObjectMapper.Tests
             json += ", { \"MapCommand\" : \"DirectMap\", \"DestinationName\" : \"FName\", \"SourceName\" : [ \"FirstName\" ] }";
             json += ", { \"MapCommand\" : \"DirectMap\", \"DestinationName\" : \"LName\", \"SourceName\" : [ \"LastName\" ] }";
             json += ", { \"MapCommand\" : \"Multiply\", \"DestinationName\" : \"TotalSumValue\", \"SourceName\" : [ \"Value1\",\"Value2\",\"Value3\" ] }";
+            json += ", { \"MapCommand\" : \"DirectMap\", \"DestinationName\" : \"MyColor\", \"SourceName\" : [ \"TestEnum\" ] }";
             json += "]";
 
             List<MapperConfig> _mapperConfigs = ServiceStack.Text.JsonSerializer.DeserializeFromString<List<MapperConfig>>(json);
@@ -35,6 +36,7 @@ namespace DynamicObjectMapper.Tests
             _testConfigDictionary.Add("StringFirstNameConfig", _mapperConfigs[6]);
             _testConfigDictionary.Add("StringLastNameConfig", _mapperConfigs[7]);
             _testConfigDictionary.Add("MultiplyConfig", _mapperConfigs[8]);
+            _testConfigDictionary.Add("EnumConfig", _mapperConfigs[9]);
 
             commandHandlers = new Dictionary<MapCommand, ICommandHandler>();
             commandHandlers.Add(MapCommand.DirectMap, new DirectMapCommandHandler());

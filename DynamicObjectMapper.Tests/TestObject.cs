@@ -13,5 +13,11 @@ namespace DynamicObjectMapper.Tests
         public int Value1 { get; set; }
         public Decimal Value2 { get; set; }
         public double Value3 { get; set; }
+        public TestEnum TestEnum { get; set; }
+    }
+
+    public enum TestEnum
+    {
+        Red,Blue,Orange,Black
     }
 }
