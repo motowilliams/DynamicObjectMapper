@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>DynamicObjectMapper</id>
+    <version>1.0.0</version>
+    <authors>Eric</authors>
+    <owners>Eric</owners>
+    <licenseUrl>http://example.com</licenseUrl>
+    <projectUrl>http://example.com</projectUrl>
+    <iconUrl>http://example.com</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Simple configuration based object mapper</description>
+    <releaseNotes>First release</releaseNotes>
+    <copyright>Copyright 2012</copyright>
+    <tags>objectmapper</tags>
+    <dependencies>
+    </dependencies>
+  </metadata>
+</package>
